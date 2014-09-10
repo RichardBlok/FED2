@@ -9,9 +9,9 @@ Comment your code
 
 ## Javascript
 * Don't use global variables/objects
+* Everything in English
 * use short clear (meaningful) names
 * Constructor function start with capital
-* Contants with all capitals
 * camelCase the rest
 * Place external scripts at the bottom of the page
 

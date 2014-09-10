@@ -1,36 +1,14 @@
-var app = app || {};
+controller { 
+}
 
-(function(){
-	controller { 
-		init: function(){
-			debug.init();
-			gps.init();
-		}
-	}
+gps {
+}
 
-	gps {
-		init: function(){
+tour {	
+}
 
-		}
-	}
+map {
+}
 
-	tour {
-		init: function(){
-
-		}		
-	}
-
-	map {
-		init: function(){
-
-		}
-	}
-
-	debug {
-		init: function(){
-
-		}
-	}
-
-	controller.init();
-}();
+debug {
+}
