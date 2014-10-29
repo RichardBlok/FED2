@@ -1,0 +1,4 @@
+Naam: Richard Blok
+Nummer: 500661371
+Klas: V2-05
+Vak: Frontend Development 2
