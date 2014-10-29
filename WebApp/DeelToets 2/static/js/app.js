@@ -102,7 +102,7 @@ var app = app || {};
 	app.xhr = {
 		trigger: function (type, url, success, data) {
 			app.sections.toggle('loading');
-
+			// Zorgt ervoor dat de pagina niet refreshed
 			var req = new XMLHttpRequest;
 			req.open(type, url, true);
 
