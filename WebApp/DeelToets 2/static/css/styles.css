@@ -1,4 +1,3 @@
-
 /* RESET */
 
 body, div,
@@ -23,6 +22,8 @@ a:hover {
 @-o-viewport { width: device-width; }
 @viewport { width: device-width; }
 
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
 
 /* BASE STYLES */
 
@@ -32,9 +33,7 @@ a:hover {
   z-index: 100;  
   top:50%;  
   left:50%;  
-  margin:-100px 0 0 -100px;  
-  width:200px;  
-  height:60px;
+  margin:-90px 0 0 -115px;
   background: #f4421a;
   font-size: 2.7em;
   font-style: bold;
@@ -46,7 +45,7 @@ a:hover {
 #swiper {
   background: #ddd;
   width: 100%;
-  height: 54px;
+  height: 60px;
   float: top;
   position:absolute;
 }
@@ -72,6 +71,7 @@ body {
   color: #37302a;
   background: #ebebeb;
   font: normal 100%/1.4 sans-serif;
+  overflow-y: hidden;
 }
 
 section {
@@ -81,7 +81,7 @@ section {
 }
 
 h1 {
-  font-size: 3.3em;
+  font-size: 3em;
   text-transform: uppercase;
   margin: 15px;
   text-align: center;
@@ -95,6 +95,15 @@ section#home-page {
   float: left;
   margin: 30px;
   width: 90%;
+}
+
+section#home-page header h1 {
+  padding-top: 50px;
+}
+
+section#about-page header h1 {
+  padding-top: 50px;
+  margin-top: 45px;
 }
 
 section#movie-page article section {
@@ -131,6 +140,9 @@ section#movie-page article section a {
   text-transform: uppercase;
   order: 4;
 }
+section#detail-page article section header h1 {
+  padding-top: 50px;
+}
 
 section#detail-page article section header a {
   color: #37302a;
@@ -159,33 +171,25 @@ section#detail-page article section a {
 
 /* NAVIGATION STYLES */
 
-.fixed {
+.navigation {
+  width: 100%;
+  height: 100%;
   position: fixed;
-  width: 100%;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-}
-
-.nav-collapse,
-.nav-collapse * {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.nav-collapse,
-.nav-collapse ul {
+  z-index: 0;
   list-style: none;
-  width: 100%;
-  float: left;
 }
 
-.nav-collapse li {
-  float: left;
+.nav-item {
   width: 100%;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #000;
 }
 
-.nav-collapse a {
+.nav-item a {
   color: #fff;
   text-decoration: none;
   width: 100%;
@@ -195,57 +199,49 @@ section#detail-page article section a {
   float: left;
 }
 
-.nav-collapse ul ul a {
-  background: #ca3716;
-  padding-left: 2em;
-}
-
-/* NAV TOGGLE STYLES */
-
-.nav-toggle {
-  position: fixed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  text-decoration: none;
-  text-indent: -999px;
+.site-wrap {
+  min-height: 100%;
+  min-width: 100%;
+  background: #ebebeb;
   position: relative;
-  overflow: hidden;
-  width: 70px;
-  height: 55px;
-  float: right;
-}
-
-.nav-toggle:before {
-  color: #f4421a; /* Edit this to change the icon color */
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  font-size: 28px;
-  text-transform: none;
-  position: absolute;
-  content: "≡";
-  text-indent: 0;
-  text-align: center;
-  line-height: 55px;
-  speak: none;
-  width: 100%;
   top: 0;
+  bottom: 100%;
   left: 0;
+  z-index: 1;
 }
 
-.nav-toggle.active::before {
-  font-size: 24px;
-  content:"x";
+.nav-trigger {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+  position: fixed;
+  right: 15px; top: 15px;
+  z-index: 2;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+  background-size: contain;
+}
+
+.nav-trigger + label, .site-wrap {
+  transition: top 0.5s;
+}
+
+.nav-trigger:checked + label {
+  top: 151px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+  top: 136px;
 }
 
 /* GENRES */
 
 .filter {
+  margin-top: 61px;
   width: 100%;
   display: block;
   height: auto;

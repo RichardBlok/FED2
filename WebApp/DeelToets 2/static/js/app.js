@@ -231,37 +231,25 @@ var app = app || {};
 			var swipeNavigate = new Hammer(navSwipe);
 
 			// Stelt Hammer in op horizontale swipe
-			swipeNavigate.get('swipe').set({ direction: Hammer.DIRECTION_HORIZONTAL });
+			swipeNavigate.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
 			// Luistert naar swipe richting
-			swipeNavigate.on("swiperight", function(ev) {
-				responsiveNav.toggle;
-				console.log('swipe open');
+			swipeNavigate.on("pandown, swiperight", function(ev) {
+				document.getElementById("nav-trigger").checked = true;
 			});
-			// Roept 'resize' aan
-			var element = document.getElementById('resize');
-			// Luistert naar tap
-			var hammertime = Hammer(element).on('tap', function(event) {
-				app.gesture.toggle('resize');
-				console.log('resize');
+			swipeNavigate.on("panup, swipeleft", function(ev) {
+				document.getElementById("nav-trigger").checked = false;
 			});
-		},
-		// Toggle methode met parameter 'id'
-		toggle: function(id) {
-			// Checkt of 'active' al bestaat en verwijderd die							
-			if(document.getElementById(id).classList.contains('active')) {
-				document.getElementById(id).classList.remove('active'); 
-			} else {
-				// Voegt class 'active' toe of verwijderd 'active'	
-				var toggleElement = document.getElementsByTagName('p');
-				for(var i in toggleElement) {								
-					if(toggleElement[i].classList)							
-						toggleElement[i].classList.remove('active');			
-				}
-				if(document.getElementById(id))
-				document.getElementById(id).classList.add('active');
-			}
-		},
+			// Maakt een klik-event aan
+			window.addEventListener('mouseup', function(event) { 
+				// Sluit menu als muis buiten menu klikt
+				var triggerMenu = document.getElementById('nav-trigger'); 
+				// Als lokatie op 'mouseup' niet gelijk is aan 'triggerMenu'
+				if (event.target != triggerMenu ){ 
+					triggerMenu.checked = false; 
+				} 
+			});
+		}
 	}
 	// Start 'init' uit controller
 	app.controller.init();
