@@ -48,6 +48,7 @@ html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-seri
   height: 60px;
   float: top;
   position:absolute;
+  z-index: 20;
 }
 
 #resize {
@@ -203,9 +204,8 @@ section#detail-page article section a {
   min-height: 100%;
   min-width: 100%;
   background: #ebebeb;
-  position: relative;
+  position: absolute;
   top: 0;
-  bottom: 100%;
   left: 0;
   z-index: 1;
 }
@@ -216,8 +216,9 @@ section#detail-page article section a {
 }
 
 label[for="nav-trigger"] {
-  position: fixed;
-  right: 15px; top: 15px;
+  position: absolute;
+  right: 15px; 
+  top: 15px;
   z-index: 2;
   height: 30px;
   width: 30px;

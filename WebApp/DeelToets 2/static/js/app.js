@@ -234,10 +234,12 @@ var app = app || {};
 			swipeNavigate.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
 			// Luistert naar swipe richting
-			swipeNavigate.on("pandown, swiperight", function(ev) {
+			swipeNavigate.on("pandown, swipedown", function(ev) {
+				ev.preventDefault();
 				document.getElementById("nav-trigger").checked = true;
 			});
-			swipeNavigate.on("panup, swipeleft", function(ev) {
+			swipeNavigate.on("panup, swipeup", function(ev) {
+				ev.preventDefault();
 				document.getElementById("nav-trigger").checked = false;
 			});
 			// Maakt een klik-event aan
