@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Web App V1, basic JavaScript Skeleton">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+        <link rel="stylesheet" href="static/css/styles.css">
+        <link rel="author" href="humans.txt"> 
+        <title>Frontend 2 - Richard Blok</title>
+    </head>
+    <body>
+		<ul class="navigation">
+	  		<li class="nav-item"><a href="#homepage">Home</a></li>
+	    	<li class="nav-item"><a href="#about">About</a></li>
+	  		<li class="nav-item"><a href="#movies">Movies</a></li>
+	  	</ul>
+
+		<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+		<label for="nav-trigger"></label>		
+		
+		<div class="site-wrap">
+			<div id="swiper"></div>
+
+			<main id="content">
+				<section id="loading" data-route="loading">
+					<div id="loader">loading</div>
+				</section>
+
+				<section id="home-page" data-route="homepage">
+					<header>
+						<h1 data-bind="title"></h1>
+						<p data-bind="description"></p>
+					</header>
+				</section>
+
+				<section id="about-page" data-route="about">
+					<header>
+						<h1 data-bind="title"></h1>
+						<p data-bind="description"></p>
+					</header>
+				</section>
+
+				<section id="movie-page">
+					<ul class="filter">
+						<li><a href="#movies/all">All</a></li>
+						<li><a href="#movies/action">Action</a></li>
+						<li><a href="#movies/adventure">Adventure</a></li>
+						<li><a href="#movies/crime">Crime</a></li>
+	 					<li><a href="#movies/drama">Drama</a></li>
+	 					<li><a href="#movies/horror">Horror</a></li>
+						<li><a href="#movies/thriller">Thriller</a></li>
+					</ul>
+					<article data-bind="movies" id="movies">
+						<section>
+							<header>
+								<a data-bind="link" href=""><h1 data-bind="title"></h1></a>
+								<p>Release date: <time data-bind="release_date"></time></p>
+								<p class="score">Score: <span data-bind="reviews"></span></p>
+							</header>
+							<figure>
+								<a data-bind="link" href=""><img src="" alt="" data-bind="cover"></a>
+							</figure>
+							<p data-bind="simple_plot"></p><a data-bind="link" href="">read more</a>
+						</section>
+					</article>
+				</section>
+
+				<section id="detail-page">
+					<article data-bind="detail" id="detail">
+						<section>
+							<header>
+								<a href="#movies"><h1 data-bind="title"></h1></a>
+								<p>Release date: <time data-bind="release_date"></time></p>
+								<p>Score: <span data-bind="reviews"></span></p>
+							</header>
+							<figure>
+								<a href="#movies"><img src="" alt="" data-bind="cover"></a>
+							</figure>
+							<p data-bind="plot"></p><a href="#movies">back to movies</a>
+						</section>
+					</article>
+				</section>
+			</main>
+    	</div>
+    	<script type="text/javascript" src="static/js/vendor/routie.js"></script>
+	    <script type="text/javascript" src="static/js/vendor/transparency.js"></script>
+	    <script type="text/javascript" src="static/js/vendor/underscore-min.js"></script>
+	    <script type="text/javascript" src="static/js/vendor/hammer.min.js"></script>
+	    <script type="text/javascript" src="static/js/app.js"></script>
+    </body>
+</html>
