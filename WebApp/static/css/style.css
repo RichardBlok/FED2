@@ -1,8 +1,0 @@
-/* Maakt pagina leeg */
-section {
-	display: none;
-}
-/* "active" class die aangeroepen wordt door Transparency section */
-.active {
-	display: block;
-}
