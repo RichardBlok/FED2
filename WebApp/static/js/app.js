@@ -15,7 +15,7 @@ var app = app || {};
 	// Routie object met twee properties
 	app.router = {
 		init: function () {	
-			// Router-object, kijkt naar hash (#)
+			// Router-object
 			routie({
 				about: function () {
 					// Toggle methode voor beide pagina's
@@ -97,7 +97,7 @@ var app = app || {};
 		},
 		// Toggle methode met parameter 'section'
 		toggle: function (section) {
-			// Loopt alle sections langs
+			// Local Scope
 			var selector = document.querySelectorAll("section");
 			// For loop die 'active' weghaald, parameter controleerd en vervolgens weer de class toevoegd 
 			for (i = 0; i < selector.length; i++) {
@@ -108,5 +108,4 @@ var app = app || {};
 	};
 	// Start 'init' uit controller
 app.controller.init();
-//Immediately Invoked Function Expression, IIFE = SIAF Self Invoking Anonymous Function
 })();
